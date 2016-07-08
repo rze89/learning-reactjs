@@ -18,8 +18,41 @@
         render: function(){
           return (
             <div className="commentBox">
-            Hello, world test! I am a CommentBox.
+            <h1>Comment Box</h1>
+            <CommentList/>
+            <CommentForm/>
             </div>
+          );
+        }
+      });
+      var CommentList = React.createClass({
+        render: function(){
+          return (
+            <div className="commentList">
+            <Comment author="John Smith">This is a comment</Comment>
+            <Comment author="John Doe">This is a second comment</Comment>
+            </div>
+          );
+        }
+      });
+      var CommentForm = React.createClass({
+        render: function(){
+          return (
+          <div className="commentForm">
+            Hello, world! I am a CommentForm.
+          </div>
+        );
+        }
+      });
+      var Comment = React.createClass({
+        render: function(){
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+              {this.props.author}
+              </h2>
+              {this.props.children}
+              </div>
           );
         }
       });
